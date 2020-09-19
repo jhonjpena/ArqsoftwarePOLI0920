@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <body background="Fondo de Pantalla.jpg"></body>
+
+    <style>
+        body {
+            background-color: #333;
+            overflow: hidden;
+        }
+        
+        .logo {
+            display: block;
+            margin: auto;
+            margin-bottom: 20px;
+            width: 400px;
+            height: 300px;
+        }
+        
+        .contenedor {
+            text-align: center;
+            margin: 0 auto;
+            height: 300px;
+            width: 350px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        
+        .contenedor input {
+            text-align: center;
+        }
+        
+        .contenedor button {
+            margin-top: 20px;
+        }
+        
+        .pokemon {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            display: inline-block;
+        }
+        
+        p {
+            margin-top: -10px;
+            margin-bottom: -30px;
+        }
+        
+        #contenedor {
+            margin-top: -60px;
+            height: 400px;
+            width: 400px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    </div>
+    <img src="Logo1.jpg" class="logo" alt="">
+    <div class="contenedor">
+        <input type="text" id="caja" placeholder="Ingrese Un Numero">
+        <button class="text-white btn bg-danger" id="button">Buscar</button>
+        <img src="" id="img" class="pokemon" alt="">
+        <p id="Nombre" class="text-white"></p>
+        <p id="Tipo" class="text-white"></p>
+        <p id="Habilidades" class="text-white"></p>
+    </div>
+
+
+    <script>
+        let buton = document.getElementById('button')
+
+        buton.addEventListener('click', () => {
+            let caja = document.getElementById('caja').value
+            let img = document.getElementById('img')
+            let Nombre = document.getElementById('Nombre')
+            let Tipo = document.getElementById('Tipo')
+            let Habilidades = document.getElementById('Habilidades')
+            let xhttp = new XMLHttpRequest()
+            xhttp.open("GET", `https://pokeapi.co/api/v2/pokemon/${caja}`)
+            xhttp.send()
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let datoPokemon = JSON.parse(this.responseText)
+                    console.log(datoPokemon)
+                    img.setAttribute("src", datoPokemon.sprites.front_default)
+                    Nombre.textContent = 'Nombre: ' + datoPokemon.name
+                    Tipo.textContent = 'Tipo: ' + datoPokemon.types[0].type.name
+                    Habilidades.textContent = 'Habilidades: ' + datoPokemon.abilities[0].ability.name
+                }
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

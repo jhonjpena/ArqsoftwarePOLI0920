@@ -16,7 +16,7 @@ Un pokedex es un buscador de Pokemons, donde puedes obtener información sobre e
 - CSS
 
 ### ELABORADO POR:
-Peña Olarte Jhon Jairo - 1821020399  
-Brayan Andrés Piedrahita Granada – 1911021281 
-Daniel Pérez Amaya – 1911980967 
-Sebastián David Quintero Pinzon - 1721023103 
+- Peña Olarte Jhon Jairo - 1821020399  
+- Brayan Andrés Piedrahita Granada – 1911021281 
+- Daniel Pérez Amaya – 1911980967 
+- Sebastián David Quintero Pinzon - 1721023103 
